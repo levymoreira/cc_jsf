@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
  */
 @SuppressWarnings("serial")
 @Entity //define que esta classe será uma tabela em um base de dados
-@Table(name = "produtos") //define o nome da tabela na base de dados
+@Table(name = "produto") //define o nome da tabela na base de dados
 public class Produto implements Serializable{
 
 	//Propriedades
