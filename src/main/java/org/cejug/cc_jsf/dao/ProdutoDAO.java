@@ -19,7 +19,7 @@ public class ProdutoDAO {
 		this.entityManager = entityManager;
 	}
 
-	public void saveOrUpdate(Produto produto) {
+	public void salvarOuAlterar(Produto produto) {
 		entityManager.getTransaction().begin();
 		if (produto.getDataDeCadastro() == null) {
 			produto.setDataDeCadastro(new Date());
@@ -30,7 +30,7 @@ public class ProdutoDAO {
 		entityManager.getTransaction().commit();
 	}
 
-	public void delete(Produto produto) {
+	public void deletar(Produto produto) {
 		entityManager.getTransaction().begin();
 		entityManager.remove(produto);
 		entityManager.getTransaction().commit();
