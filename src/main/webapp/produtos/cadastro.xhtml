@@ -12,21 +12,23 @@
       	<br/>
       	<h:messages />
       	<h:panelGrid columns="2">
-      	<h:outputLabel value="Nome" for="nome" />
-      	<h:inputText id="nome" label="Nome" value="#{produtoBean.produto.nome}" maxlength="50" required="true" requiredMessage="Digite seu nome"/>
+      	<h:outputLabel value="Nome: " for="nome" />
+      	<h:inputText id="nome" label="Nome" value="#{produtoBean.produto.nome}" maxlength="50" required="true" requiredMessage="Digite seu nome">
       	<f:validateLength minimum="2" maximum="50" />
-      	
-      	<h:outputLabel value="Preco" for="preco" />
+      	</h:inputText>
+
+      	<h:outputLabel value="Preco: " for="preco" />
       	<h:inputText id="preco" label="Preco" value="#{produtoBean.produto.preco}" />
       	
-      	<h:outputLabel value="Situacao" for="situacao" />
+      	<h:outputLabel value="Situacao: " for="situacao" />
       	<h:inputText id="situacao" label="Situacao" value="#{produtoBean.produto.situacao}" maxlength="1" />
       	
-      	<h:outputLabel value="Data de Cadastro" for="datadecadastro" />
-      	<h:inputText id="datadecadastro" label="Data de Cadastro" value="#{produtoBean.produto.dataDeCadastro}"/>
+      	<h:outputLabel value="Data de Cadastro: " for="datadecadastro" />
+      	<h:inputText id="datadecadastro" label="Data de Cadastro" value="#{produtoBean.produto.dataDeCadastro}">
       	<f:convertDateTime dateStyle="medium"/>
-      	
-      	<h:outputLabel value="Observacao" for="obs" />
+		</h:inputText>
+		
+      	<h:outputLabel value="Observacao: " for="obs" />
       	<h:inputTextarea id="obs" label="Observacao" value="#{produtoBean.produto.observacoes}" />
       	</h:panelGrid>
       	
