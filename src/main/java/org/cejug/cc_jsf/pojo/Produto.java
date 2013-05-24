@@ -26,7 +26,7 @@ public class Produto implements Serializable{
 	//Propriedades
 	
 	@Id //diz que a propriedade id deve ser o identificador desta tabela no banco 
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //forma como será gerado este identificador
+	@GeneratedValue(strategy = GenerationType.AUTO) //forma como será gerado este identificador
 	private Integer id; //código único identificador 
 	
 	@Column(length = 50) //tamanho do campo nome 

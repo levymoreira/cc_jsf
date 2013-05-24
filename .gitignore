@@ -4,6 +4,7 @@
 *.jar
 .settings/
 target/
+testedb/
 .classpath
 .project
 cc_console_db/
