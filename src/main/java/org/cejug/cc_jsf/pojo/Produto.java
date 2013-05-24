@@ -18,13 +18,17 @@ import javax.persistence.TemporalType;
  * Classe que representa um produto
  *
  */
-@SuppressWarnings("serial")
 @Entity //define que esta classe será uma tabela em um base de dados
 @Table(name = "produto") //define o nome da tabela na base de dados
 public class Produto implements Serializable{
 
 	//Propriedades
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8114001930137970115L;
+
 	@Id //diz que a propriedade id deve ser o identificador desta tabela no banco 
 	@GeneratedValue(strategy = GenerationType.AUTO) //forma como será gerado este identificador
 	private Integer id; //código único identificador 

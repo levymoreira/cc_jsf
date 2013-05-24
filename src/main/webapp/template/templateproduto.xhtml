@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+
+		<head>
+		<title><ui:insert name="pageTitle">Cadastro Produto</ui:insert></title>
+		<style type="text/css">
+			body {
+				  font-family: Consolas,Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 14px;
+			}
+			.header {
+				  font-family: Consolas, Trebuchet MS,Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 18px;
+			}
+			.bottom {
+				  font-family: Consolas, Trebuchet MS, Verdana, Arial, Helvetica, sans-serif;
+				  font-size: 9px;
+				  text-align: center;
+				  vertical-align: middle;
+				  color: #8E969D;
+			}
+		</style>
+		</head>
+
+<body bgcolor="#fffff">
+<table style="border:1px solid #00CD66"  align="center" cellpadding="1" cellspacing="0" border="0" width="380">
+<tbody>
+
+	<tr>
+		<td class="header" height="40" align="center" valign="middle" width="100%" bgcolor="#00EE76">
+			<ui:insert name="pageHeader">Produto</ui:insert>
+		</td>
+	</tr>
+	<tr>
+		<td height="1" width="100%" bgcolor="#00CD66"></td>
+	</tr>	
+
+	<tr>
+		<td width="100%"  colspan="1">
+			<table width="100%" style="height:170px" align="left" cellpadding="0" cellspacing="0" border="0">
+			<tbody>
+				<tr>
+					<td align="center" width="100%" valign="middle">
+					
+					<ui:insert name="body">Corpo/Body</ui:insert>
+					
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>	
+	
+	<tr>
+		<td colspan="1"  valign="bottom" height="0" width="100%" bgcolor="#00CD66"></td>
+	</tr>
+</tbody>
+</table>
+</body>
+		
+</html>
