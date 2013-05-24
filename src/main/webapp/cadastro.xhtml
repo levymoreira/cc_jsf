@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+		<ui:composition template="template/templateproduto.xhtml">
+				<ui:define name="pageTitle">Produto</ui:define>
+				<ui:define name="pageHeader">Produto</ui:define>
+				<ui:define name="body">
+				<h:form>
+					<h3>Cadastro de Produto</h3>
+					<br />
+					<h:messages />
+					<h:panelGrid columns="2">
+		<h:outputLabel value="Nome: " for="nome" />
+		<h:inputText id="nome" label="Nome"	value="#{produtoBean.produto.nome}" maxlength="50" required="true" requiredMessage="Digite seu nome">
+		<f:validateLength minimum="2" maximum="50" />
+		</h:inputText>
+
+		<h:outputLabel value="Preco: " for="preco" />
+		<h:inputText id="preco" label="Preco" value="#{produtoBean.produto.preco}" />
+
+		<h:outputLabel value="Situacao: " for="situacao" />
+		<h:inputText id="situacao" label="Situacao" value="#{produtoBean.produto.situacao}" maxlength="1" />
+
+		<h:outputLabel value="Data de Cadastro: " for="datadecadastro" />
+		<h:inputText id="datadecadastro" label="Data de Cadastro" value="#{produtoBean.produto.dataDeCadastro}">
+		<f:convertDateTime dateStyle="medium" />
+		</h:inputText>
+
+		<h:outputLabel value="Observacao: " for="obs" />
+		<h:inputTextarea id="obs" label="Observacao" value="#{produtoBean.produto.observacoes}" rows="4" cols="17"/>
+				
+		</h:panelGrid><br/>
+		<h:commandButton value="Salvar" action="listagem?faces-redirect=true" />
+		<h:commandButton value="Cancelar" action="listagem?faces-redirect=true" immediate="true"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</html>
