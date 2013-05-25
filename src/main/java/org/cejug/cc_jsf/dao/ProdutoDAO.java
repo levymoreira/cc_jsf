@@ -9,16 +9,13 @@ import javax.persistence.Query;
 import org.cejug.cc_jsf.pojo.Produto;
 
 public class ProdutoDAO {
-
-	private EntityManager entityManager;
+	
+	private EntityManager entityManager = null;
 	
 	public ProdutoDAO() {
+		entityManager = EntityManagerUtil.getEntityManagerFacotory().createEntityManager();
 	}
 	
-	public ProdutoDAO(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	public void salvarOuAlterar(Produto produto) {
 		entityManager.getTransaction().begin();
 		if (produto.getDataDeCadastro() == null) {
@@ -36,16 +33,9 @@ public class ProdutoDAO {
 		entityManager.getTransaction().commit();
 	}
 
-	public Produto getById(int id) {
-		entityManager.getTransaction().begin();
-		Produto produto = entityManager.find(Produto.class, id);
-		entityManager.getTransaction().commit();
-		return produto;
-	}
-
 	@SuppressWarnings("unchecked")
-	public List<Produto> getAll() {
-		Query query = entityManager.createQuery("SELECT p FROM Produtos p");
+	public List<Produto> getTodos() {
+		Query query = entityManager.createQuery("SELECT p FROM Produto p");
 		return query.getResultList();
 	}
 

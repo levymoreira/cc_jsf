@@ -8,11 +8,58 @@
 
 <h:body>
 	<h:form>
-      	<h3>Lista de Produtos</h3>
-      	<br/>
-        <h:commandButton value="Inserir" action="cadastro?faces-redirect=true" />
-        <br/>
-        <h:commandLink value="Voltar para Index" action="/index?faces-redirect=true" />
+		<h3>Lista de Produtos</h3>
+		
+		<br />
+		<h:commandButton value="Inserir" action="#{produtoBean.inserir()}" />
+		<br />
+		
+		<h:dataTable var="registro" 
+					 value="#{produtoBean.lista}"
+					 style="width: 700px">
+					 
+			<h:column headerText="Id" 
+					  style="width: 100px">
+				<h:outputText value="#{registro.id}" />
+			</h:column>
+			
+			<h:column headerText="Nome" 
+					  style="width: 200px">
+				<h:outputText value="#{registro.nome}" />
+			</h:column>
+			
+			<h:column headerText="Preço" 
+					  style="width: 150px">
+				<h:outputText value="#{registro.preco}">
+					<f:convertNumber pattern="#0.00" />
+				</h:outputText>
+			</h:column>
+			
+			<h:column headerText="Data de cadastro" style="width: 100px">
+				<h:outputText value="#{registro.dataDeCadastro}" />
+			</h:column>
+			
+			<h:column headerText="Ações" 
+					  style="width: 50px">
+					  
+				<h:commandLink value="Editar" 
+							   action="#{produtoBean.editar()}">
+					<f:setPropertyActionListener value="#{registro}"
+												 target="#{produtoBean.produtoSelecionado}" />
+				</h:commandLink>
+				
+				<h:commandLink value="Deletar" 
+							   action="#{productBean.deletar()}">
+					<f:setPropertyActionListener value="#{registro}"
+												 target="#{produtoBean.produtoSelecionado}" />
+				</h:commandLink>
+				
+			</h:column>
+		</h:dataTable>
+		
+		<br />
+		<h:commandLink value="Voltar para Index"
+					   action="/index?faces-redirect=true" />
 	</h:form>
 </h:body>
 </html>
