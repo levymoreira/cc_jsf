@@ -3,11 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-
-		<ui:composition template="template/templateproduto.xhtml">
-				<ui:define name="pageTitle">Produto</ui:define>
-				<ui:define name="pageHeader">Produto</ui:define>
-				<ui:define name="body">
+<h:body>
 				<h:form>
 					<h3>Cadastro de Produto</h3>
 					<br />
@@ -36,6 +32,5 @@
 		<h:commandButton value="Salvar" action="listagem?faces-redirect=true" />
 		<h:commandButton value="Cancelar" action="listagem?faces-redirect=true" immediate="true"/>
 			</h:form>
-		</ui:define>
-	</ui:composition>
-</html>
+			</h:body>
+		</html>
