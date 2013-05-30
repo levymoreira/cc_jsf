@@ -1,16 +1,22 @@
+<!-- Importação das taglibs que serão utilizadas -->
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
+	<!-- Título para a página -->
 	<title>Lista de Produtos</title>
 </h:head>
 
 <h:body>
 	<h:form>
+		<!-- Exibe em tamanho grande no início da página que esta é a listagem de produtos -->
 		<h3>Lista de Produtos</h3>
 		
+		<!-- É usado ao longo do arquivo para identar os componentes, para que esses fiquem um abaixo do outro e não ao lado  -->
 		<br />
+		
+		<!-- Botão que chama o método inserir do ProdutoBean, responsável por navegar para a página de cadastro -->
 		<h:commandButton value="Inserir" action="#{produtoBean.inserir()}" />
 		<br />
 		
@@ -47,7 +53,10 @@
 					<f:setPropertyActionListener value="#{registro}"
 												 target="#{produtoBean.produtoSelecionado}" />
 				</h:commandLink>
+				
+				<!-- Exibe um espaço entre os dois links, só para melhor o visual, em uma aplicação real deve ser usado css para resolver esse tipo de problema -->
 				<h:outputLabel value=" "/>
+				
 				<h:commandLink value="Deletar" 
 							   action="#{produtoBean.deletar()}">
 					<f:setPropertyActionListener value="#{registro}"
