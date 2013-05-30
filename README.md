@@ -18,3 +18,5 @@ Para colocar o projeto em execução no eclipse faça:
 4- Adicione o projeto ao tomcat e pode verificar no seu navegador
 
    http://localhost:8080/cc_jsf/
+
+OBS: Caso após o procedimento acima o eclipse apresente alguma mensagem de erro no projeto, clique com botão direito do mouse sobre o projeto clique em 'Maven' -> 'Update Project' -> Ok. 
