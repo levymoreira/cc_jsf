@@ -47,9 +47,9 @@
 					<f:setPropertyActionListener value="#{registro}"
 												 target="#{produtoBean.produtoSelecionado}" />
 				</h:commandLink>
-				
+				<h:outputLabel value=" "/>
 				<h:commandLink value="Deletar" 
-							   action="#{productBean.deletar()}">
+							   action="#{produtoBean.deletar()}">
 					<f:setPropertyActionListener value="#{registro}"
 												 target="#{produtoBean.produtoSelecionado}" />
 				</h:commandLink>
@@ -59,7 +59,7 @@
 		
 		<br />
 		<h:commandLink value="Voltar para Index"
-					   action="/index?faces-redirect=true" />
+					   action="index?faces-redirect=true" />
 	</h:form>
 </h:body>
 </html>
