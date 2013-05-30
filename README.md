@@ -19,4 +19,4 @@ Para colocar o projeto em execução no eclipse faça:
 
    http://localhost:8080/cc_jsf/
 
-OBS: Caso após o procedimento acima o eclipse apresente alguma mensagem de erro no projeto, clique com botão direito do mouse sobre o projeto clique em 'Maven' -> 'Update Project' -> Ok. 
+OBS: Caso após o procedimento acima o eclipse apresente alguma mensagem de erro no projeto, clique com botão direito do mouse sobre o projeto clique em 'Maven' -> 'Update Project' -> 'Ok'. 
