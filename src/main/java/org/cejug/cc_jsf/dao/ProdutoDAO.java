@@ -12,31 +12,33 @@ public class ProdutoDAO {
 	
 	private EntityManager entityManager = null;
 	
-	public ProdutoDAO() {
-		entityManager = EntityManagerUtil.getEntityManagerFacotory().createEntityManager();
+	//Construtor
+	
+	public ProdutoDAO() { 
+		entityManager = EntityManagerUtil.getEntityManagerFacotory().createEntityManager(); 
 	}
 	
-	public void salvarOuAlterar(Produto produto) {
-		entityManager.getTransaction().begin();
-		if (produto.getDataDeCadastro() == null) {
+	public void salvarOuAlterar(Produto produto) { //metodo salvar/alterar produto
+		entityManager.getTransaction().begin(); //inicia uma transação com o banco
+		if (produto.getDataDeCadastro() == null) { //caso o getDataDeCadastro seja null, retorna a data atual
 			produto.setDataDeCadastro(new Date());
-			entityManager.persist(produto);
+			entityManager.persist(produto); //inserir os produtos declarado nos campos
 		}else{
-			entityManager.merge(produto);
+			entityManager.merge(produto); //devolve o objeto para ser preenchido
 		}
-		entityManager.getTransaction().commit();
+		entityManager.getTransaction().commit(); //retorna a transação e faz o commit para o banco
 	}
 
-	public void deletar(Produto produto) {
-		entityManager.getTransaction().begin();
-		entityManager.remove(produto);
-		entityManager.getTransaction().commit();
+	public void deletar(Produto produto) { //metodo deleta produto
+		entityManager.getTransaction().begin(); //inicia uma transação com o banco
+		entityManager.remove(produto); //remove o produto
+		entityManager.getTransaction().commit(); //retorna a transação e faz o commit para o banco
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Produto> getTodos() {
-		Query query = entityManager.createQuery("SELECT p FROM Produto p");
-		return query.getResultList();
-	}
+	public List<Produto> getTodos() { //metodo lista dos produtos
+		Query query = entityManager.createQuery("SELECT p FROM Produto p"); //retorna todos os produtos do banco utilizando a lingaugem JPQL de consulta do JPA
+		return query.getResultList(); //mostra o resultado da lista de produtos cadastro no banco
+	} 
 
 }
