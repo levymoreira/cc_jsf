@@ -7,6 +7,7 @@ public class EntityManagerUtil {
 	
 	private static EntityManagerFactory entityManagerFactory = null;
 	
+	//Construtor Padrão sem argumentos
 	public EntityManagerUtil(){}
 	
 	public static EntityManagerFactory getEntityManagerFacotory(){
