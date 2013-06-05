@@ -4,7 +4,7 @@ import java.util.Date;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-//Impostação necessária para uso das anotações
+//Importação necessária para uso das anotações
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
