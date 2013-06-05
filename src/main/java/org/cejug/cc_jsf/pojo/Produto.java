@@ -4,6 +4,7 @@ import java.util.Date;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+//Impostação necessária para uso das anotações
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,14 +20,11 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity //define que esta classe será uma tabela em um base de dados
-@Table(name = "produto") //define o nome da tabela na base de dados
+@Table(name = "produtos") //define o nome da tabela na base de dados
 public class Produto implements Serializable{
 
 	//Propriedades
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 8114001930137970115L;
 
 	@Id //diz que a propriedade id deve ser o identificador desta tabela no banco 
@@ -40,12 +38,12 @@ public class Produto implements Serializable{
 	private BigDecimal preco; //preço para a venda
 	
 	@Column(length=1) //tamanho do campo
-	private Byte situacao; //novo, bom estado, mais ou menos e quebrado
+	private Byte situacao; //Guardara o estado do produnto sendo estes: novo, bom estado, mais ou menos e quebrado
 	
 	private Boolean inativo; //não é mais usado no sistema
 	
 	@Lob //equivale ao blob, como um varchar de tamanho indefinido
-	private String observacoes; //dados adicionais		
+	private String observacoes; //dados adicionais	
 	
 	@Temporal(TemporalType.DATE) //diz que esta propriedade será uma data
 	@Column(name = "data_de_cadastro", nullable = false, updatable = false) // define o nome da coluna; que não pode ser nula; e a propriedade não pode ser alterada
@@ -53,6 +51,9 @@ public class Produto implements Serializable{
 	
 	//Construtores
 	
+	/**
+	 * Construtor padrão, ele é necessário (obrigatorio) para o correto funcionamento do JPA
+	 */
 	public Produto(){}
 	
 	//Getters e Setters
@@ -114,6 +115,11 @@ public class Produto implements Serializable{
 	}
 	
 	//Métodos Sobrescritos
+	
+	/**
+	 * Sobrescreve hashCode e equals, não é obrigatório
+	 * Mais a respeito em: http://stackoverflow.com/questions/5031614/the-jpa-hashcode-equals-dilemma
+	 */
 
 	@Override
 	public int hashCode() {
