@@ -52,7 +52,7 @@ public class Produto implements Serializable{
 	//Construtores
 	
 	/**
-	 * Construtor padrão, ele é necessário (obrigatorio) para o correto funcionamento do JPA
+	 * Construtor padrão, ele é necessário (obrigatório) para o correto funcionamento do JPA
 	 */
 	public Produto(){}
 	
