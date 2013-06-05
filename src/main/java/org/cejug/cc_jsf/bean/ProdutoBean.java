@@ -10,61 +10,82 @@ import org.cejug.cc_jsf.pojo.Produto;
 
 //Mapeamento via annotation
 @ManagedBean(name = "produtoBean") // produtoBean representará a classe ProdutoBean, caso campo name nao fosse declarado a classe ProdutoBean seria representado por seu proprio nome em minusculo (produtoBean)
-@RequestScoped //esse tipo de scoped descarta as informações que são armazenada no managedbean
+@RequestScoped //menor escorpo do JSF
 public class ProdutoBean {
 
 	// Propriedades
+	
+	/**
+	 * Instancia da classe Produto para acessar os atributos da classe
+	 * Representa o produto selecionado atualmente para editar, deletar ou alterar
+	 */ 
+	private Produto produtoSelecionado = new Produto(); 
 
-	private Produto produtoSelecionado = new Produto(); //instancia da classe Produto para acessar os atributos da classe
+	/**
+	 * instancia da classe ProdutoDAO para salvar,alterar,deletar e listar os objetos	 * 
+	 */ 
+	private ProdutoDAO produtoDAO = new ProdutoDAO();
 
-	private ProdutoDAO produtoDAO = new ProdutoDAO(); //instancia da classe ProdutoDAO para salvar,alterar,deletar e listar os objetos
-
-	private List<Produto> lista = null; //Cria uma lista de produto 
+	/**
+	 * Lista de produtos, usada para exibir a listagem no dataTable do JSF 
+	 */ 
+	private List<Produto> lista = null; 
 
 	// Constantes
+	
+	/**
+	 * Redirecionamento para a página listagem e cadastro, usando constantes para facilitar a manutenção
+	 */ 
+	private final String PAGINA_LISTAGEM = "listagem?faces-redirect=true";
+	private final String PAGINA_CADASTRO = "cadastro"; 
 
-	private final String PAGINA_LISTAGEM = "listagem?faces-redirect=true"; //redirecionamento para a pagina listagem
-	private final String PAGINA_CADASTRO = "cadastro"; //redirecionamento para a pagina cadastro				
-
-	// Construtor Padrão sem argumento
+	// Construtor Padrão sem argumentos
 
 	public ProdutoBean() {
 	}
 
 	// Métodos
 
-	public String salvar() { //metodo salvar ou alterar	
-		produtoDAO.salvarOuAlterar(produtoSelecionado); //chama a classe produtoDAO e o metodo salvarOuAlterar e passa o produtoSelecionado para ser salvo/alterado no banco
-		return PAGINA_LISTAGEM; //depois de salvar/alterar, retorna a pagina listagem dos produtos
+	/**
+	 * Método responsável por salvar (caso seja um novo registro) ou alterar (caso o registro já exista na base) um produto
+	 */ 
+	public String salvar() {
+		produtoDAO.salvarOuAlterar(produtoSelecionado); //usa o  método salvarOuAlterar da classe produtoDAO para salvar o produto selecionado
+		return PAGINA_LISTAGEM; //após de salvar, retorna a página de listagem dos produtos
 	}
 
-	public String inserir() {	//metodo inserir o produto na pagina cadastro
+	public String inserir() {	//método inserir o produto na pagina cadastro
 		produtoSelecionado = new Produto(); //instancia a classe produto para cadastro produto
-		return PAGINA_CADASTRO; //retorna a pagina cadastro 
+		return PAGINA_CADASTRO; //retorna a página de cadastro/alteração do produto
 	}
 	
-	public String editar() { //metodo para editar o produto cadastrado		
-		return PAGINA_CADASTRO; //retorna a pagina cadastro
+	public String editar() { //método para editar o produto cadastrado		
+		return PAGINA_CADASTRO; //retorna a página de cadastro/alteração do produto
 	}
 
 	public String cancelar() { //metodo para cancelar o cadastramento do produto
-		return PAGINA_LISTAGEM; //retorna pagina listagem dos produtos
+		return PAGINA_LISTAGEM; //não salvar nada e retorna para a página de listagem dos produtos
 	}	
 	
-	public String deletar(){ //metodo para deletar o produto cadastrado
-		produtoDAO.deletar(produtoSelecionado); //chama a classe produtoDAO, o metodo deletar, para deletar algum produto do banco
+	public String deletar(){ //metodo para deletar o produto
+		produtoDAO.deletar(produtoSelecionado); //chama o metodo deletar da classe produtoDAO para deletar o produto selecionado
 		return PAGINA_LISTAGEM; //retorna a pagina listagem dos produtos
 	}
 
 	// Getters e Setters
+	// Os get e set abaixo são necessários para que o JSF consiga pegar os valores do maneged bean e carregar na página e vice versa
 
+	/**
+	 * Retorna a lista de produtos que será exibida no data table, caso a lista esteja null é carregada 
+	 * através do método getTodos da classe ProdutoDAO
+	 */ 
 	public List<Produto> getLista() {
 		if (lista == null) {
 			lista = produtoDAO.getTodos();
 		}
 		return lista;
 	}
-
+	
 	public void setLista(List<Produto> lista) {
 		this.lista = lista;
 	}
