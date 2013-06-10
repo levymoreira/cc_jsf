@@ -8,6 +8,10 @@ import javax.faces.bean.RequestScoped;
 import org.cejug.cc_jsf.dao.ProdutoDAO;
 import org.cejug.cc_jsf.pojo.Produto;
 
+/**
+ * ManegedBean para gerenciar as páginas de listagem e edição/cadastro de produto.
+ * 
+ */ 
 //Mapeamento via annotation
 @ManagedBean(name = "produtoBean") // produtoBean representará a classe ProdutoBean, caso campo name nao fosse declarado a classe ProdutoBean seria representado por seu proprio nome em minusculo (produtoBean)
 @RequestScoped //menor escorpo do JSF
