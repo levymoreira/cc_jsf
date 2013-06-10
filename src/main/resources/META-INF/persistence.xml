@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <!-- Nome da persistence unit -->
   <persistence-unit name="cc_jsf_persistence_unit" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    
+    <!-- Lista de entidades que devem ser mapeadas -->
     <class>org.cejug.cc_jsf.pojo.Produto</class>
     <class>org.cejug.cc_jsf.dao.Aluno</class>
-    <properties>
+    
+    <!-- Configuração da conexão com o JAVA DB -->
+    <properties>      
       <property name="javax.persistence.jdbc.url" value="jdbc:derby:testedb;create=true"/>
       <property name="javax.persistence.jdbc.user" value="teste"/>
       <property name="javax.persistence.jdbc.password" value="teste"/>
